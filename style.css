@@ -1121,3 +1121,21 @@ textarea:focus {
   }
 
 }
+/* =========================================
+   CHARACTER LIFE MOTION
+   ========================================= */
+
+.preview-image.character-alive {
+  transform:
+    translate3d(
+      var(--life-x, 0px),
+      var(--life-y, 0px),
+      0
+    )
+    scale(var(--life-scale, 1));
+
+  will-change: transform;
+
+  transition:
+    transform 0.08s linear;
+}
