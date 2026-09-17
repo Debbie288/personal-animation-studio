@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="A personal cinematic animation and movie production studio.">
+
+  <title>MotionForge Studio</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-mark">M</div>
+
+        <div>
+          <h1>MotionForge</h1>
+          <span>Personal Movie Studio</span>
+        </div>
+      </div>
+
+      <button class="icon-btn" id="saveProjectBtn" title="Save project">
+        💾
+      </button>
+
+    </header>
+
+
+    <!-- PROJECT BAR -->
+    <section class="project-bar">
+
+      <div>
+        <span class="small-label">PROJECT</span>
+
+        <input
+          type="text"
+          id="projectName"
+          value="My New Movie"
+          maxlength="60"
+        >
+      </div>
+
+      <div class="project-status" id="projectStatus">
+        Ready
+      </div>
+
+    </section>
+
+
+    <!-- MAIN WORKSPACE -->
+    <main class="workspace">
+
+
+      <!-- PREVIEW -->
+      <section class="preview-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">CINEMATIC PREVIEW</span>
+            <h2>Your Scene</h2>
+          </div>
+
+          <button class="small-btn" id="fullscreenBtn">
+            ⛶
+          </button>
+
+        </div>
+
+
+        <div class="preview-wrapper">
+
+          <div
+            class="preview-stage"
+            id="previewStage"
+          >
+
+            <div class="empty-preview" id="emptyPreview">
+
+              <div class="empty-icon">🎬</div>
+
+              <h3>Add your first image</h3>
+
+              <p>
+                Upload a cinematic image to begin your scene.
+              </p>
+
+              <button
+                class="primary-btn"
+                id="emptyUploadBtn"
+              >
+                + Add Image
+              </button>
+
+            </div>
+
+
+            <img
+              id="previewImage"
+              class="preview-image"
+              alt="Scene preview"
+            >
+
+
+            <div class="preview-overlay">
+
+              <div class="scene-badge" id="sceneBadge">
+                SCENE 01
+              </div>
+
+              <div
+                class="animation-badge"
+                id="animationBadge"
+              >
+                No Motion
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PLAYBACK -->
+        <div class="playback">
+
+          <button
+            class="play-btn"
+            id="playBtn"
+          >
+            ▶
+          </button>
+
+          <div class="progress-area">
+
+            <div class="progress-track">
+
+              <div
+                class="progress-fill"
+                id="progressFill"
+              ></div>
+
+            </div>
+
+            <div class="time-row">
+
+              <span id="currentTime">
+                00:00
+              </span>
+
+              <span id="durationTime">
+                00:05
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- IMAGE -->
+      <section class="panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">MEDIA</span>
+            <h2>Scene Image</h2>
+          </div>
+
+        </div>
+
+
+        <label class="upload-card">
+
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            hidden
+          >
+
+          <div class="upload-icon">
+            🖼️
+          </div>
+
+          <div>
+            <strong>Upload Image</strong>
+            <p>JPG, PNG or WEBP</p>
+          </div>
+
+          <span class="upload-arrow">＋</span>
+
+        </label>
+
+      </section>
+
+
+      <!-- =====================================================
+           AI MOTION GENERATOR
+           ===================================================== -->
+
+      <section class="motion-generator">
+
+        <div class="generator-header">
+
+          <span class="generator-label">
+            AI MOTION GENERATOR
+          </span>
+
+          <h2>
+            Describe the movement
+          </h2>
+
+          <p>
+            Tell MotionForge how you want your image to move.
+          </p>
+
+        </div>
+
+
+        <div class="generator-box">
+
+          <label for="motionPrompt">
+            Movement description
+          </label>
+
+          <textarea
+            id="motionPrompt"
+            placeholder="Example: The woman slowly turns her head toward the door, blinks naturally, breathes gently, and her hair moves slightly in the wind."
+          ></textarea>
+
+
+          <div class="generator-controls">
+
+            <div class="generator-control">
+
+              <label for="generatorDuration">
+                Duration
+              </label>
+
+              <select id="generatorDuration">
+
+                <option value="3">
+                  3 seconds
+                </option>
+
+                <option value="5" selected>
+                  5 seconds
+                </option>
+
+                <option value="8">
+                  8 seconds
+                </option>
+
+                <option value="10">
+                  10 seconds
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="generator-control">
+
+              <label for="generatorIntensity">
+                Motion strength
+              </label>
+
+              <input
+                id="generatorIntensity"
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            id="generateAnimationBtn"
+            class="generate-animation-btn"
+            type="button"
+          >
+            ✦ Generate Animation
+          </button>
+
+
+          <div
+            id="generatorStatus"
+            class="generator-status"
+          >
+            Ready to generate.
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ANIMATION -->
+      <section class="panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">MOTION</span>
+            <h2>Animation</h2>
+          </div>
+
+          <span class="live-dot">
+            ● LIVE
+          </span>
+
+        </div>
+
+
+        <div class="motion-grid">
+
+          <button
+            class="motion-card active"
+            data-motion="none"
+          >
+            <span>◼</span>
+            <strong>Still</strong>
+            <small>No motion</small>
+          </button>
+
+
+          <button
+            class="motion-card"
+            data-motion="zoom"
+          >
+            <span>⌕</span>
+            <strong>Cinematic Zoom</strong>
+            <small>Slow push-in</small>
+          </button>
+
+
+          <button
+            class="motion-card"
+            data-motion="pan"
+          >
+            <span>↔</span>
+            <strong>Slow Pan</strong>
+            <small>Camera movement</small>
+          </button>
+
+
+          <button
+            class="motion-card"
+            data-motion="float"
+          >
+            <span>〰</span>
+            <strong>Living Frame</strong>
+            <small>Natural movement</small>
+          </button>
+
+
+          <button
+            class="motion-card"
+            data-motion="breath"
+          >
+            <span>◉</span>
+            <strong>Breathing</strong>
+            <small>Subtle life</small>
+          </button>
+
+
+          <button
+            class="motion-card"
+            data-motion="dramatic"
+          >
+            <span>✦</span>
+            <strong>Dramatic</strong>
+            <small>Cinematic movement</small>
+          </button>
+
+        </div>
+
+
+        <div class="control-row">
+
+          <label>
+
+            <span>Motion intensity</span>
+
+            <input
+              type="range"
+              id="intensity"
+              min="1"
+              max="100"
+              value="45"
+            >
+
+          </label>
+
+
+          <label>
+
+            <span>Duration</span>
+
+            <select id="durationSelect">
+
+              <option value="5">
+                5 seconds
+              </option>
+
+              <option value="8">
+                8 seconds
+              </option>
+
+              <option value="10">
+                10 seconds
+              </option>
+
+              <option value="15">
+                15 seconds
+              </option>
+
+              <option value="20">
+                20 seconds
+              </option>
+
+            </select>
+
+          </label>
+
+        </div>
+
+            </section>
