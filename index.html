@@ -446,3 +446,343 @@
         </div>
 
             </section>
+                  <!-- TALKING IMAGE -->
+      <section class="panel talking-panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">CHARACTER</span>
+            <h2>Talking Image</h2>
+          </div>
+
+          <span class="coming-badge">
+            ENGINE READY
+          </span>
+
+        </div>
+
+
+        <div class="talking-box">
+
+          <div class="talking-icon">
+            🗣️
+          </div>
+
+          <div class="talking-info">
+
+            <strong>
+              Make the character speak
+            </strong>
+
+            <p>
+              Add a voice and prepare this scene for
+              facial animation and lip-sync.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <label class="upload-card compact">
+
+          <input
+            type="file"
+            id="voiceInput"
+            accept="audio/*"
+            hidden
+          >
+
+          <div class="upload-icon">
+            🎙️
+          </div>
+
+          <div>
+            <strong>Add narration</strong>
+            <p id="voiceName">MP3, WAV, M4A</p>
+          </div>
+
+          <span class="upload-arrow">＋</span>
+
+        </label>
+
+      </section>
+
+
+      <!-- SOUND -->
+      <section class="panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">AUDIO</span>
+            <h2>Sound Design</h2>
+          </div>
+
+        </div>
+
+
+        <div class="audio-list">
+
+          <label class="audio-item">
+
+            <input
+              type="file"
+              id="musicInput"
+              accept="audio/*"
+              hidden
+            >
+
+            <span class="audio-icon">
+              🎵
+            </span>
+
+            <div>
+              <strong>Background Music</strong>
+
+              <small id="musicName">
+                Add music
+              </small>
+            </div>
+
+            <span>＋</span>
+
+          </label>
+
+
+          <label class="audio-item">
+
+            <input
+              type="file"
+              id="soundInput"
+              accept="audio/*"
+              hidden
+            >
+
+            <span class="audio-icon">
+              🔊
+            </span>
+
+            <div>
+              <strong>Sound Effects</strong>
+
+              <small id="soundName">
+                Rain, footsteps, wind...
+              </small>
+            </div>
+
+            <span>＋</span>
+
+          </label>
+
+        </div>
+
+      </section>
+
+
+      <!-- SCENES -->
+      <section class="panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">STORY</span>
+            <h2>Your Scenes</h2>
+          </div>
+
+          <span id="sceneCount">
+            1 scene
+          </span>
+
+        </div>
+
+
+        <div
+          class="scene-list"
+          id="sceneList"
+        ></div>
+
+
+        <button
+          class="secondary-btn"
+          id="addSceneBtn"
+        >
+          ＋ Add New Scene
+        </button>
+
+      </section>
+
+
+      <!-- NARRATION -->
+      <section class="panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">STORYTELLING</span>
+            <h2>Scene Narration</h2>
+          </div>
+
+        </div>
+
+
+        <textarea
+          id="narrationText"
+          placeholder="Write what the narrator should say in this scene..."
+          maxlength="1500"
+        ></textarea>
+
+
+        <div class="character-row">
+
+          <div class="character-avatar">
+            🎙️
+          </div>
+
+          <div>
+
+            <strong>
+              AI Narrator
+            </strong>
+
+            <p>
+              Your narration will be added to this scene.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PROJECT ACTIONS -->
+      <section class="action-area">
+
+        <button
+          class="primary-btn large"
+          id="previewMovieBtn"
+        >
+          ▶ Preview Movie
+        </button>
+
+
+        <button
+          class="secondary-btn large"
+          id="saveMovieBtn"
+        >
+          💾 Save Project
+        </button>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+
+      <button class="nav-item active">
+        <span>🎬</span>
+        Studio
+      </button>
+
+
+      <button
+        class="nav-item"
+        id="projectsNav"
+      >
+        <span>📁</span>
+        Projects
+      </button>
+
+
+      <button class="nav-item">
+
+        <span>⚙️</span>
+        Settings
+
+      </button>
+
+    </nav>
+
+
+  </div>
+
+
+  <!-- AUDIO ELEMENTS -->
+
+  <audio id="voiceAudio"></audio>
+
+  <audio
+    id="musicAudio"
+    loop
+  ></audio>
+
+  <audio id="soundAudio"></audio>
+
+
+  <!-- FULLSCREEN MODAL -->
+
+  <div
+    class="modal"
+    id="previewModal"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+      >
+        ×
+      </button>
+
+
+      <div
+        class="fullscreen-stage"
+        id="fullscreenStage"
+      >
+
+        <img
+          id="fullscreenImage"
+          alt="Full screen preview"
+        >
+
+      </div>
+
+
+      <div class="modal-controls">
+
+        <button
+          class="play-btn"
+          id="modalPlayBtn"
+        >
+          ▶
+        </button>
+
+
+        <span id="modalSceneName">
+          Scene 01
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="js/face-animation.js"></script>
+
+  <script src="js/motion-generator.js"></script>
+
+  <script src="app.js"></script>
+
+
+</body>
+</html>
