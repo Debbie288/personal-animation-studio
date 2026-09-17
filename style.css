@@ -1139,3 +1139,163 @@ textarea:focus {
   transition:
     transform 0.08s linear;
 }
+/* =========================================================
+   AI MOTION GENERATOR
+   ========================================================= */
+
+.motion-generator {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
+  border: 1px solid rgba(255,255,255,0.09);
+}
+
+
+.generator-header {
+  margin-bottom: 18px;
+}
+
+
+.generator-label {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: 0.65;
+  margin-bottom: 8px;
+}
+
+
+.generator-header h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+
+.generator-header p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.65;
+}
+
+
+.generator-box {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.18);
+}
+
+
+.generator-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+#motionPrompt {
+  width: 100%;
+  min-height: 125px;
+  resize: vertical;
+  box-sizing: border-box;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  outline: none;
+}
+
+
+#motionPrompt:focus {
+  border-color: rgba(255,255,255,0.3);
+}
+
+
+.generator-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+
+.generator-control select,
+.generator-control input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.generator-control select {
+  padding: 11px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.25);
+  color: inherit;
+}
+
+
+.generator-control input[type="range"] {
+  margin-top: 9px;
+}
+
+
+.generate-animation-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.generate-animation-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+
+.generator-status {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+
+.generator-status.generating {
+  opacity: 1;
+}
+
+
+.generator-status.ready {
+  opacity: 0.8;
+}
+
+
+@media (max-width: 560px) {
+
+  .generator-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .motion-generator {
+    padding: 16px;
+  }
+
+}
